@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Form Data Table</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.25/css/jquery.dataTables.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <h1>Hello well come to Data Page</h1>
+    <style>
+        
+        body {
+            padding: 20px;
+        }
+
+        #loadDataBtn {
+            margin-bottom: 20px;
+        }
+
+        /* CSS styles for background colors */
+        .odd-row {
+            background-color: #f2f2f2;
+        }
+
+        .even-row {
+            background-color: #ffffff;
+        }
+    </style>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $('#loadDataBtn').click(function() {
+                // Replace this with your actual code to load data from a source
+                var data = [
+                {'id': 1, 'name': 'John', 'age': 25},
+                {'id': 2, 'name': 'Jane', 'age': 30},
+                {'id': 3, 'name': 'kate', 'age': 22},
+                {'id': 4, 'name': 'rock', 'age': 35},
+                {'id': 5, 'name': 'Thor', 'age': 55},
+                {'id': 6, 'name': 'James', 'age': 15},
+                {'id': 7, 'name': 'Juliya', 'age': 21},
+                {'id': 8, 'name': 'Naq', 'age': 21},
+                {'id': 9, 'name': 'Chinna', 'age': 45},
+                {'id': 10, 'name': 'Raj', 'age': 44},
+                {'id': 11, 'name': 'Raju', 'age': 23},
+                {'id': 12, 'name': 'Roshin', 'age': 78},
+                {'id': 13, 'name': 'Salman', 'age': 19},
+                {'id': 14, 'name': 'Vijay', 'age': 14},
+                {'id': 15, 'name': 'Anurag', 'age': 15},
+                {'id': 16, 'name': 'Niharika', 'age': 19},
+                {'id': 17, 'name': 'Sreeja', 'age': 20},
+                {'id': 18, 'name': 'Nooreen', 'age':33},
+                {'id': 19, 'name': 'Aisha', 'age': 42},
+                {'id': 20, 'name': 'Varshani', 'age': 24},
+                {'id': 21, 'name': 'Vyshu', 'age': 25},
+                {'id': 22, 'name': 'Ahad', 'age': 24},
+                {'id': 23, 'name': 'Ramaya', 'age': 78},
+                {'id': 24, 'name': 'Charan', 'age': 25},
+                {'id': 25, 'name': 'Samptha', 'age': 65},
+                    // Add more data objects
+                ];
+
+                // Clear the existing table rows
+                $('#dataTable tbody').empty();
+
+                // Append the new data to the table
+                $.each(data, function(index, item) {
+                    var row = $('<tr>');
+                    if (index % 2 === 0) {
+                        row.addClass('even-row');
+                    } else {
+                        row.addClass('odd-row');
+                    }
+                    row.append('<td>' + item.id + '</td>');
+                    row.append('<td>' + item.name + '</td>');
+                    row.append('<td>' + item.age + '</td>');
+                    $('#dataTable tbody').append(row);
+                });
+
+                // Initialize DataTables on the table
+                $('#dataTable').DataTable({
+                    "paging": true,
+                    "lengthMenu": [5, 10, 25],
+                    "pageLength": 10
+                });
+            });
+        });
+    </script>
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <button id="loadDataBtn" class="btn btn-primary btn-block">Load Data</button>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12">
+                <div class="table-responsive">
+                    <table id="dataTable" class="table table-striped table-bordered">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Name</th>
+                                <th>Age</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- Data will be dynamically loaded here -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
